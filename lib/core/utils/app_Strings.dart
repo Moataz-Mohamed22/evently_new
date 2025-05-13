@@ -1,10 +1,54 @@
-import 'package:easy_localization/easy_localization.dart';
-
-class AppStrings{
-  static String personalizeYourExperience ="personalize_your_experience";
-  static String desFirstOnboarding ="des_first_onboarding";
-  static String language ="language";
-  static String theme ="theme";
-  static String letsStart ="lets_start";
-
+class AppStrings {
+  static String personalizeYourExperience = "personalize_your_experience";
+  static String desFirstOnboarding = "des_first_onboarding";
+  static String letsStart = "lets_start";
+  static String language = "language";
+  static String arabic = "arabic";
+  static String english = "english";
+  static String theme = "theme";
+  static String dark = "dark";
+  static String light = "light";
+  static String home = "home";
+  static String map = "map";
+  static String profile = "profile";
+  static String favorite = "favorite";
+  static String welcomeBack = "welcomeback";
+  static String sport = "sport";
+  static String birthday = "birthday";
+  static String meeting = "meeting";
+  static String gaming = "gaming";
+  static String workshop = "workshop";
+  static String bookClub = "bookclub";
+  static String exhibition = "exhibition";
+  static String holiday = "holiday";
+  static String eating = "eating";
+  static String all = "all";
+  static String searchEvent = "search_event";
+  static String logout = "logout";
+  static String email = "email";
+  static String password = "password";
+  static String rePassword = "rePassword";
+  static String name = "name";
+  static String forgetPassword = "forget_password";
+  static String login = "login";
+  static String dontHaveAnAccount = "dont_have_an_account";
+  static String createAccount = "create_account";
+  static String or = "or";
+  static String loginWithGoogle = "login_with_google";
+  static String register = "register";
+  static String alreadyHaveAccount = "already_have_account";
+  static String editEvent = "edit_event";
+  static String eventDate = "event_date";
+  static String chooseDate = "choose_date";
+  static String chooseTime = "choose_time";
+  static String eventTime = "event_time";
+  static String createEvent = "create_event";
+  static String location = "location";
+  static String title = "title";
+  static String description = "description";
+  static String eventTitle = "event_title";
+  static String eventDescription = "event_description";
+  static String chooseEventLocation = "choose_event_location";
+  static String addEvent = "add_event";
 }
+

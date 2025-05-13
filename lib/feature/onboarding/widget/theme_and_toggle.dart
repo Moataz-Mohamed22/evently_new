@@ -5,6 +5,10 @@ import 'package:evently_app_new/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:provider/provider.dart';
+
+import '../../../core/providers/theme_provider.dart';
+
 class ThemeAndToggle extends StatefulWidget {
   const ThemeAndToggle({super.key});
 
@@ -13,7 +17,27 @@ class ThemeAndToggle extends StatefulWidget {
 }
 
 class _ThemeAndToggleState extends State<ThemeAndToggle> {
-  String selectedMode = 'light';
+  late String selectedMode;
+
+  @override
+  void initState() {
+    super.initState();
+    final currentTheme = Provider.of<ThemeProvider>(context, listen: false).themeMode;
+    selectedMode = currentTheme == ThemeMode.dark ? 'dark' : 'light';
+  }
+
+  void changeTheme(String mode) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    setState(() {
+      selectedMode = mode;
+    });
+
+    if (mode == 'dark') {
+      themeProvider.changeTheme(ThemeMode.dark);
+    } else {
+      themeProvider.changeTheme(ThemeMode.light);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +58,11 @@ class _ThemeAndToggleState extends State<ThemeAndToggle> {
               color: AppColors.primaryColor,
             ),
           ),
-          child:Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedMode = 'light';
-                  });
-                },
+                onTap: () => changeTheme('light'),
                 child: CircleAvatar(
                   radius: 15,
                   backgroundColor: selectedMode == 'light'
@@ -58,11 +78,7 @@ class _ThemeAndToggleState extends State<ThemeAndToggle> {
               ),
               SizedBox(width: 4.w),
               GestureDetector(
-                onTap: () {
-                  setState(() {
-                    selectedMode = 'dark';
-                  });
-                },
+                onTap: () => changeTheme('dark'),
                 child: CircleAvatar(
                   radius: 15,
                   backgroundColor: selectedMode == 'dark'
@@ -78,9 +94,9 @@ class _ThemeAndToggleState extends State<ThemeAndToggle> {
               ),
             ],
           ),
-
         ),
       ],
     );
   }
 }
+
