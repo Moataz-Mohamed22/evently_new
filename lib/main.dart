@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:evently_app_new/config/routes.dart';
 import 'package:evently_app_new/core/utils/app_theme.dart';
+import 'package:evently_app_new/feature/auth/login/ui/login_screen.dart';
 import 'package:evently_app_new/feature/auth/register/ui/register_screen.dart';
 import 'package:evently_app_new/feature/onboarding/first_screen.dart';
 import 'package:flutter/material.dart';
@@ -46,10 +47,11 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.light
           // Provider.of<ThemeProvider>(context).themeMode,
-          ,initialRoute: Routes.register,
+          ,initialRoute: Routes.login,
           routes: {
             Routes.firstScreen: (context) => FirstScreen(),
-            Routes.register: (context) => RegisterScreen()
+            Routes.register: (context) => RegisterScreen(),
+            Routes.login: (context) => LoginScreen(),
           },
         );
       },

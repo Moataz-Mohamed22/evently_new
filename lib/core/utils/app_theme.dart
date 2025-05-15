@@ -16,7 +16,7 @@ primaryColor: AppColors.primaryColor,
       titleLarge: AppStyles.bold20Primary,
       bodyMedium: AppStyles.bold16SecondLight,
       titleMedium: AppStyles.medium20Primary ,
-      headlineMedium: AppStyles.bold16Primary
+      headlineMedium: AppStyles.bold16Primary,
 
     ) ,
 

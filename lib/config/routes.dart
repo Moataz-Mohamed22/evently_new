@@ -3,5 +3,6 @@ class Routes {
   static final String secondScreen ="second Screen";
   static final String thirdScreen ="third Screen";
   static final String register ="register";
+  static final String login ="login Screen";
 
 }

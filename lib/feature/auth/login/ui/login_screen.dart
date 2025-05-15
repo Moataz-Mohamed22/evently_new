@@ -2,51 +2,42 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:evently_app_new/core/components/custom_text_filed.dart';
 import 'package:evently_app_new/core/utils/app_Strings.dart';
 import 'package:evently_app_new/core/utils/app_assets.dart';
-import 'package:evently_app_new/feature/auth/register/widget/button_and_already_have_account.dart';
+import 'package:evently_app_new/feature/auth/login/widget/button_dont_have_.dart';
+import 'package:evently_app_new/feature/auth/login/widget/google_button.dart';
+import 'package:evently_app_new/feature/auth/login/widget/or_text.dart';
 import 'package:evently_app_new/feature/auth/register/widget/toggle_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
-
+class LoginScreen extends StatefulWidget {
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
-  late TextEditingController name;
-  late TextEditingController email;
-  late TextEditingController password;
-  late TextEditingController rePassword;
-  late GlobalKey<FormState> _formKey;
+class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController email ;
+  late TextEditingController password ;
+  late GlobalKey<FormState> _formKey ;
 
-  @override
+
+@override
   void initState() {
     super.initState();
-    name = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
-    rePassword = TextEditingController();
     _formKey = GlobalKey<FormState>();
   }
-
   @override
   void dispose() {
-    name.dispose();
     email.dispose();
     password.dispose();
-    rePassword.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Register"),
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
@@ -64,16 +55,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       alignment: Alignment.center,
                     ),
                   ),
-                ),
-                CustomTextFiled(
-                  prefixIcon: SvgPicture.asset(
-                    AppAssets.nameIcon,
-                    width: 24.w,
-                    height: 24.h,
-                    fit: BoxFit.scaleDown,
-                  ),
-                  hintText: AppStrings.name.tr(),
-                  controller: name,
                 ),
                 CustomTextFiled(
                   prefixIcon: SvgPicture.asset(
@@ -96,18 +77,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: password,
                   obscureText: true,
                 ),
-                CustomTextFiled(
-                  prefixIcon: SvgPicture.asset(
-                    AppAssets.passwordIcon,
-                    width: 24.w,
-                    height: 24.h,
-                    fit: BoxFit.scaleDown,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      AppStrings.forgetPassword.tr(),
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
                   ),
-                  hintText: AppStrings.rePassword.tr(),
-                  controller: rePassword,
-                  obscureText: true,
                 ),
-                const ButtonAndAlreadyHaveAccount(),
+                const ButtonDontHave(),
+                SizedBox(height: 24.h),
+                const OrText(),
+                SizedBox(height: 24.h),
+                const GoogleButton(),
                 const Center(child: ToggleRegister()),
               ],
             ),
@@ -117,3 +101,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+
